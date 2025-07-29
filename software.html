@@ -70,9 +70,49 @@
 
                     <p>The Born Physical/Studied Digital (BP/SD) Consortium develops and maintains a number of software packages to facilitate the analysis of data from the BP/SD project. We also host archive-specific datasets. The following is a list of the main software packages and datasets, along with links to their documentation and source code.</p>
 
+<h2 id="software">Software</h2>
+
 <h3 id="arkiverse">Arkiverse</h3>
 
-<p>You can find the Arkiverse software on <a href="https://github.com/Born-Physical-Studied-Digitally/arkiverse.git">GitHub</a> (currently set to private). The documentation is available <a href="https://Born-Physical-Studied-Digitally.github.io/arkiverse/">here</a>.</p>
+<p>This is the main software framework of the BP/SD project. It is a direct descendant of Tiramisu, but it uses a production-level DAG system with pipeline scheduler (Dagster) and fully Pythonic objects to represent archival artifacts.</p>
+
+<ul>
+  <li><a href="https://github.com/born-physical-studied-digitally/arkiverse">GitHub repository</a>: Currently set to private, contact us to get added to the GitHub Organization</li>
+  <li><a href="https://born-physical-studied-digitally.github.io/arkiverse/">Documentation</a></li>
+</ul>
+
+<h3 id="tiramisu">Tiramisu</h3>
+
+<p>Tiramisu is a Docker-based platform to handle content relationships for an end-to-end archival-artifacts pipeline. It is intended to be used on standalone computing units to serve, access, and preserve documents, files, and their derivative artifacts. Tiramisu allows for distributed task management, frontend accessibility, metadata viewing, and graph-based database management. Most importantly, Tiramisu is completely open source: It integrates a task manager (Celery) with a graph database (neo4j) tailored for the storage and processing of archival documents.</p>
+
+<ul>
+  <li><a href="https://github.com/born-physical-studied-digitally/mcdc_doc_extraction_test">GitHub repository</a></li>
+  <li><a href="https://github.com/morales-felix/nhgri-archive/blob/main/tiramisu/README.md">Documentation</a></li>
+</ul>
+
+<h3 id="scales-nlp">Scales-NLP</h3>
+
+<p>An AI toolkit for legal research that includes a collection of deep learning models and utilities.</p>
+
+<ul>
+  <li><a href="https://github.com/scales-okn/scales-nlp">GitHub repository</a></li>
+  <li><a href="https://docs.scales-okn.org/nlp/">Documentation</a></li>
+  <li>Publications:
+    <ul>
+      <li><a href="https://localhost:3000/">Placeholder</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="skate">SKATE</h3>
+
+<p>SKATE (Seismogram Kit for Automatic Trace Extraction) is a web-based software tool for the digitization of seismic traces in historic analog seismograms.</p>
+
+<ul>
+  <li><a href="https://seismo.redfish.com/#/">Frontend tool</a></li>
+  <li><a href="https://docs.google.com/document/d/1kB97u-sA2uIJpcT2G10AjCUcVVNj6AMdwsitGrD8akw/edit?tab=t.0#heading=h.c5cxvxhg65te">Frontend tool user manual</a></li>
+  <li><a href="https://github.com/born-physical-studied-digitally/SKATE">GitHub repository</a>: Conversion of SKATE from Python 2 to Python 3</li>
+</ul>
 
                     
                 </article>
