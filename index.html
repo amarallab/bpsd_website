@@ -373,8 +373,57 @@
       if(isVisible(elements[i])) j=i;
     }
     elements[j].click();
-  },10000);
+  },7000);
   
+
+  // 🔀 Shuffle script
+  document.addEventListener("DOMContentLoaded", () => {
+    const carousel = document.querySelector("#carousel0");
+
+    // Collect the four sets in matching order
+    const inputs     = Array.from(carousel.querySelectorAll(".carousel__activator"));
+    const controls   = Array.from(carousel.querySelectorAll(".carousel__controls"));
+    const slides     = Array.from(carousel.querySelectorAll(".carousel__slide"));
+    const indicators = Array.from(carousel.querySelectorAll(".carousel__indicator"));
+
+    // Build an array of objects to keep them tied together
+    const items = inputs.map((input, i) => ({
+      input,
+      control: controls[i],
+      slide: slides[i],
+      indicator: indicators[i]
+    }));
+
+    // Fisher–Yates shuffle
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [items[i], items[j]] = [items[j], items[i]];
+    }
+
+    // Clear and re-append in shuffled order
+    const track = carousel.querySelector(".carousel__track ul");
+    const indicatorsContainer = carousel.querySelector(".carousel__indicators");
+
+    // Wipe existing
+    carousel.querySelectorAll(".carousel__activator, .carousel__controls").forEach(el => el.remove());
+    track.innerHTML = "";
+    indicatorsContainer.innerHTML = "";
+
+    // Rebuild in shuffled order
+    items.forEach((item, i) => {
+      carousel.insertBefore(item.input, carousel.querySelector(".carousel__track"));
+      carousel.insertBefore(item.control, carousel.querySelector(".carousel__track"));
+      track.appendChild(item.slide);
+      indicatorsContainer.appendChild(item.indicator);
+
+      // Ensure the first one is "checked"
+      if (i === 0) {
+        item.input.checked = true;
+      } else {
+        item.input.checked = false;
+      }
+    });
+  });
 </script>
 		<header>
 			<h2>Born Physical/Studied Digitally: <em>A consortium funded by the National Science Foundation</em></h2>
